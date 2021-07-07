@@ -31,10 +31,10 @@
 			<view v-if="loginType == 1">
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="contact" size="25" color="#E5E5E5"></my-icon>
+						<my-icon type="phone" size="25" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
-						<input v-model="name" class="uni-input" focus placeholder="请输入手机号" />
+						<input v-model="phone" class="uni-input" focus placeholder="请输入手机号" />
 					</view>
 				</view>
 				<view class="list">
@@ -42,7 +42,7 @@
 						<my-icon type="locked" size="25" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
-						<input v-model="password" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
+						<input v-model="code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
 					</view>
 				</view>
 			</view>
@@ -50,6 +50,9 @@
 			<view class="botton" style="margin-top: 30px;">
 				<div class="botton_login " @click="login()">登 录</div>
 			</view>
+		</view>
+		<view class="copyright">
+			<text>©2020至今 REFO 睿孚科技 · 版权所有</text>
 		</view>
 	</view>
 </template>
@@ -61,6 +64,8 @@
 			return {
 				name: '',
 				password: '',
+				phone: '',
+				code: '',
 				loginType: 0
 			};
 		},
@@ -75,15 +80,24 @@
 				this.loginType = type
 			},
 			login() {
-				const name = this.name
-				const password = this.password
-				if (name.length == '') {
-					this.$api.msg('请输入用户名')
-					return;
-				}
-				if (password.length == '') {
-					this.$api.msg('请输入密码')
-					return;
+				if( this.loginType == 0 ) {
+					if (this.name.length == '') {
+						this.$api.msg('请输入用户名')
+						return;
+					}
+					if (this.password.length == '') {
+						this.$api.msg('请输入密码')
+						return;
+					}
+				}else if( this.loginType == 1 ) {
+					if (this.phone.length == '') {
+						this.$api.msg('请输入手机号')
+						return;
+					}
+					if (this.code.length == '') {
+						this.$api.msg('请输入验证码')
+						return;
+					}
 				}
 				uni.switchTab({
 					url: '/pages/FirstPage/index'
@@ -158,6 +172,14 @@
 				border: 1px solid #F0F0F0;
 				width: 100%;
 			}
+		}
+		.copyright {
+			position: fixed;
+			bottom: 0.25rem;
+			font-size: 0.5rem;
+			color: #999;
+			width: 100%;
+			text-align: center;
 		}
 	}
 </style>
