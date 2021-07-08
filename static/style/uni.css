@@ -1,5 +1,11 @@
 html {
-	font-size: 20px;
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+}
+body {
+	font-size: 1.4rem;/*1.4 × 10px = 14px */
+}
+.clearBoth {
+	clear: both;
 }
 /* navigationBar样式 */
 .uni-page-head .uni-page-head__title {
@@ -10,14 +16,11 @@ uni-page-body {
 }
 /* input样式 */
 uni-input {
-	font-size: 14px;
-	height: 36px;
-	line-height: 36px;
+	font-size: 1.4rem;
+	height: 3.6rem;
 }
-	height: 36px;
-	line-height: 36px;
 .uni-input-input, .uni-input-placeholder {
-	font-size: 14px !important;
+	font-size: 1.4rem !important;
 }
 /* 折叠板样式 */
 .uni-collapse-cell__title-img {
@@ -33,4 +36,12 @@ uni-input {
 }
 .uni-collapse-cell--open .uni-collapse-cell__title-text {
 	color: #00B0F0 !important;
+}
+/* 首页通告栏 */
+.zll-notice-bar.uni-noticebar {
+	padding: 1rem !important;
+}
+/* 首页tab切换 */
+.tab-list .segmented-control__text {
+	font-size: 1.4rem !important;
 }

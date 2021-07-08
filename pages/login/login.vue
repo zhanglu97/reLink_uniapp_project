@@ -13,7 +13,7 @@
 			<view v-if="loginType == 0">
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="contact" size="25" color="#E5E5E5"></my-icon>
+						<my-icon type="contact" size="20" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
 						<input v-model="name" class="uni-input" focus placeholder="请输入用户名" />
@@ -21,7 +21,7 @@
 				</view>
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="locked" size="25" color="#E5E5E5"></my-icon>
+						<my-icon type="locked" size="20" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
 						<input v-model="password" class="uni-input" placeholder="请输入密码" @confirm="login()" />
@@ -31,7 +31,7 @@
 			<view v-if="loginType == 1">
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="phone" size="25" color="#E5E5E5"></my-icon>
+						<my-icon type="phone" size="20" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
 						<input v-model="phone" class="uni-input" focus placeholder="请输入手机号" />
@@ -39,7 +39,7 @@
 				</view>
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="locked" size="25" color="#E5E5E5"></my-icon>
+						<my-icon type="locked" size="20" color="#E5E5E5"></my-icon>
 					</view>
 					<view class="input_input">
 						<input v-model="code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-	import myIcon from "@/components/uni/my-icon/my-icon.vue"
 	export default {
 		data() {
 			return {
@@ -69,9 +68,6 @@
 				loginType: 0
 			};
 		},
-		components: {
-			myIcon
-		},
 		onLoad() {
 
 		},
@@ -81,26 +77,32 @@
 			},
 			login() {
 				if( this.loginType == 0 ) {
-					if (this.name.length == '') {
+					if (!this.name) {
 						this.$api.msg('请输入用户名')
 						return;
 					}
-					if (this.password.length == '') {
+					if (!this.password) {
 						this.$api.msg('请输入密码')
 						return;
 					}
 				}else if( this.loginType == 1 ) {
-					if (this.phone.length == '') {
+					if(this.phone) {
+        				const reg = /^1[3|4|5|7|8][0-9]\d{8}$/
+						if (!reg.test(this.phone)) {
+							this.$api.msg('请输入正确的手机号!');
+							return;
+						}
+					}else {
 						this.$api.msg('请输入手机号')
 						return;
 					}
-					if (this.code.length == '') {
+					if (!this.code) {
 						this.$api.msg('请输入验证码')
 						return;
 					}
 				}
 				uni.switchTab({
-					url: '/pages/FirstPage/index'
+					url: '/pages/HomePage/index'
 				})
 			},
 		}
@@ -118,25 +120,25 @@
 			justify-content: center;
 			align-items: center;
 			.login-logo {
-				width: 10rem;
-				height: 3rem;
+				width: 20rem;
+				height: 6rem;
 			}
 		}
 		.con {
 			position: absolute;
-			width: calc(90% - 2rem);
+			width: calc(90% - 4rem);
 			left: 5%;
 			top: 25%;
 			background: #FFFFFF;
-			box-shadow: 0 0 0.5rem #a3c8ca;
-			padding: 1rem 1rem;
+			box-shadow: 0 0 1rem #a3c8ca;
+			padding: 2rem 2rem;
 			.type_tab {
 				text-align: center;
 				text {
 					color: #999;
-					font-size: 0.7rem;
+					font-size: 1.4rem;
 					&.split {
-						padding: 0 0.5rem;
+						padding: 0 1rem;
 						color: $font-color-disabled;
 					}
 					&.active {
@@ -146,16 +148,17 @@
 			}
 			.list {
 				border-bottom: 2px solid #F7F7F7;
-				padding-top: 1rem;
+				padding-top: 2rem;
 				display: flex;
 				.input_icon {
-					width: 2rem;
-					text-align: center;
-					padding: 0px 0 0.25rem;
+					width: 4rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 				.input_input {
 					flex-grow: 1;
-					padding-right: 0.5rem;
+					padding-right: 1rem;
 				}
 				input::-webkit-input-placeholder {
 					color: #D2D2D2;
@@ -164,9 +167,9 @@
 			.botton_login {
 				background-color: $main-title-color;
 				color: #ffffff;
-				border-radius: 2rem;
-				height: 2rem;
-				line-height: 2rem;
+				border-radius: 4rem;
+				height: 4rem;
+				line-height: 4rem;
 				font-size: $font-base;
 				text-align: center;
 				border: 1px solid #F0F0F0;
@@ -175,9 +178,9 @@
 		}
 		.copyright {
 			position: fixed;
-			bottom: 0.25rem;
-			font-size: 0.5rem;
-			color: #999;
+			bottom: 0.5rem;
+			font-size: 1rem;
+			color: #d0d0d0;
 			width: 100%;
 			text-align: center;
 		}

@@ -1,0 +1,65 @@
+{
+  "id": "2658127",
+  "name": "uniapp",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8535795",
+      "name": "紧急",
+      "font_class": "jinji",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "12356662",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "10392139",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "14091269",
+      "name": "设备",
+      "font_class": "shebei1",
+      "unicode": "ece9",
+      "unicode_decimal": 60649
+    },
+    {
+      "icon_id": "13458498",
+      "name": "我 的",
+      "font_class": "my",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1436875",
+      "name": "报修",
+      "font_class": "baoxiugray",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "20496952",
+      "name": "报警 线",
+      "font_class": "baojingxian",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "456423",
+      "name": "主页",
+      "font_class": "shangchengicon21",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    }
+  ]
+}

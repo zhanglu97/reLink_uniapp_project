@@ -378,7 +378,7 @@
 		// line-height: 2;
 		// margin-top: 3px;
 		padding: 5px 0;
-		height: 36px;
+		height: 26px;
 		margin-right: 5px;
 		.label-text {
 			font-size: 14px;
@@ -390,7 +390,7 @@
 		/* #ifndef APP-NVUE */
 		width: 100%;
 		box-sizing: border-box;
-		min-height: 36px;
+		min-height: 26px;
 		/* #endif */
 		flex: 1;
 	}
