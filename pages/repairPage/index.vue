@@ -10,6 +10,12 @@
 			<uni-forms-item label="设备型号" name="data3">
 				<uni-easyinput type="text" v-model="formData.data3" placeholder="请输入设备型号" />
 			</uni-forms-item>
+			<uni-forms-item label="报警代码" name="data4">
+				<uni-easyinput type="text" v-model="formData.data4" placeholder="请输入报警代码" />
+			</uni-forms-item>
+			<uni-forms-item label="问题描述" name="data5">
+				<uni-easyinput type="textarea" v-model="formData.data5" placeholder="请输入问题描述" />
+			</uni-forms-item>
 			<button @click="submitForm">Submit</button>
 		</uni-forms>
 	</view>
@@ -23,6 +29,8 @@
 					data1:'',
 					data2:'',
 					data3:'',
+					data4:'',
+					data5:'',
 				},
 			}
 		},
@@ -39,6 +47,6 @@
 
 <style lang="scss">
 	.repairPage {
-		padding: 1rem;
+		padding: 2rem 1rem;
 	}
 </style>
