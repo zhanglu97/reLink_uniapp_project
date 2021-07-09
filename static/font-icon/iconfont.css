@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2658127 */
-  src: url('iconfont.woff2?t=1625712012980') format('woff2'),
-       url('iconfont.woff?t=1625712012980') format('woff'),
-       url('iconfont.ttf?t=1625712012980') format('truetype');
+  src: url('iconfont.woff2?t=1625821024840') format('woff2'),
+       url('iconfont.woff?t=1625821024840') format('woff'),
+       url('iconfont.ttf?t=1625821024840') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,42 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-liebiao:before {
+  content: "\e60d";
+}
+
+.icon-caidan:before {
+  content: "\e630";
+}
+
+.icon-baojing:before {
+  content: "\e61c";
+}
+
+.icon-weixiu:before {
+  content: "\e603";
+}
+
+.icon-dianjian:before {
+  content: "\e609";
+}
+
+.icon-baojing1:before {
+  content: "\e835";
+}
+
+.icon-jiantouarrow483:before {
+  content: "\e602";
+}
+
+.icon-jiantou:before {
+  content: "\e60b";
+}
+
+.icon-shebei:before {
+  content: "\e642";
 }
 
 .icon-jinji:before {
@@ -39,6 +75,10 @@
 
 .icon-baojingxian:before {
   content: "\e686";
+}
+
+.icon-shebei2:before {
+  content: "\e617";
 }
 
 .icon-shangchengicon21:before {

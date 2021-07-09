@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import uniForms from "@/components/uni/uni-forms/uni-forms.vue"
-import uniFormsItem from "@/components/uni/uni-forms-item/uni-forms-item.vue"
 export default {
 	data() {
 		return {
@@ -47,9 +45,6 @@ export default {
 				}
 			}
 		}
-	},
-	components: {
-		uniForms, uniFormsItem
 	},
 	methods: {
 		submit() {

@@ -69,9 +69,6 @@
 </template>
 
 <script>
-import myIcon from "@/components/uni/my-icon/my-icon.vue"
-import uniCollapse from "@/components/uni/uni-collapse/uni-collapse.vue"
-import uniCollapseItem from "@/components/uni/uni-collapse-item/uni-collapse-item.vue"
 import runTime from "./collapsePage/runTime.vue"
 import realTimeData from "./collapsePage/realTimeData.vue"
 import alarmRecord from "./collapsePage/alarmRecord.vue"
@@ -79,7 +76,7 @@ import maintain from "./collapsePage/maintain.vue"
 import locationData from "./collapsePage/locationData.vue"
 export default {
 	components: {
-		myIcon, uniCollapse, uniCollapseItem, runTime, realTimeData, alarmRecord, maintain, locationData
+		runTime, realTimeData, alarmRecord, maintain, locationData
 	},
 	data() {
 		return {

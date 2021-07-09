@@ -13,7 +13,7 @@
 			<view v-if="loginType == 0">
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="contact" size="20" color="#E5E5E5"></my-icon>
+						<uni-icons type="contact" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
 						<input v-model="name" class="uni-input" focus placeholder="请输入用户名" />
@@ -21,7 +21,7 @@
 				</view>
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="locked" size="20" color="#E5E5E5"></my-icon>
+						<uni-icons type="locked" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
 						<input v-model="password" class="uni-input" placeholder="请输入密码" @confirm="login()" />
@@ -31,7 +31,7 @@
 			<view v-if="loginType == 1">
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="phone" size="20" color="#E5E5E5"></my-icon>
+						<uni-icons type="phone" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
 						<input v-model="phone" class="uni-input" focus placeholder="请输入手机号" />
@@ -39,7 +39,7 @@
 				</view>
 				<view class="list">
 					<view class="input_icon">
-						<my-icon type="locked" size="20" color="#E5E5E5"></my-icon>
+						<uni-icons type="locked" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
 						<input v-model="code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />

@@ -1,21 +1,19 @@
 <template>
 	<view class="content">
 		<view class="mix-list-cell" :class="border" @click="eventClick" hover-class="cell-hover" :hover-stay-time="50">
-			<my-icon v-if="icon" class="cell-icon yticon" :type="icon" size="20upx" :color="iconColor"></my-icon>
+			<uni-icons v-if="icon" class="cell-icon yticon" :type="icon" size="20upx" :color="iconColor"></uni-icons>
+			<i v-if="fontIcon" class="iconfont" :class="fontIcon" :style="{'color': iconColor}"></i>
 			<text class="cell-tit clamp">{{title}}</text>
 			<text v-if="tips" class="cell-tip">{{tips}}</text>
 			<text class="cell-more yticon" :class="typeList[navigateType]"></text>
+			<i class="iconfont icon-jiantouarrow483 jt"></i>
 		</view>
 
 	</view>
 </template>
 
 <script>
-	import myIcon from "@/components/uni/my-icon/my-icon.vue"
 	export default {
-		components: {
-			myIcon
-		},
 		data() {
 			return {
 				typeList: {
@@ -28,6 +26,10 @@
 		},
 		props: {
 			icon: {
+				type: String,
+				default: ''
+			},
+			fontIcon: {
 				type: String,
 				default: ''
 			},
@@ -68,7 +70,9 @@
 	.icon .mix-list-cell.b-b:after {
 		left: 90upx;
 	}
-
+	.iconfont.jt {
+		color: #dbdbdb;
+	}
 	.mix-list-cell {
 		display: flex;
 		align-items: baseline;
@@ -103,6 +107,7 @@
 			font-size: $font-base;
 			color: $font-color-dark;
 			margin-right: 10upx;
+			margin-left: 1rem;
 		}
 
 		.cell-tip {

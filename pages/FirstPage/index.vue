@@ -40,12 +40,7 @@
 </template>
 
 <script>
-	import myIcon from "@/components/uni/my-icon/my-icon.vue"
-	
 	export default {
-		components: {
-			myIcon, 
-		},
 		data() {
 			return {
 				listNav: [{
@@ -60,6 +55,18 @@
 					name: '三菱卧式加工中心',
 					bh: 'MT80',
 					today: '22',
+				}, {
+					imgUrl: require("../../static/img/shebei.png"),
+					state: '报警',
+					name: '三菱卧式加工中心',
+					bh: 'MT80',
+					today: '12',
+				}, {
+					imgUrl: require("../../static/img/shebei.png"),
+					state: '报警',
+					name: '三菱卧式加工中心',
+					bh: 'MT80',
+					today: '12',
 				}, {
 					imgUrl: require("../../static/img/shebei.png"),
 					state: '报警',
@@ -94,8 +101,9 @@
 
 <style lang="scss">
 	.MainPage {
-		min-height: 100vh;
+		min-height: 100%;
 		background-color: $background-color;
+		padding-bottom: 5.5rem;
 		.clearBoth {
 			clear: both;
 		}

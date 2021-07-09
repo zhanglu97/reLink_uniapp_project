@@ -1,52 +1,135 @@
 <template>
-	<view class="repairPage">
-		 <uni-forms :modelValue="formData" ref="form">
-			<uni-forms-item label="设备编码" name="data1">
-				<uni-easyinput type="text" v-model="formData.data1" placeholder="请输入设备编码" />
-			</uni-forms-item>
-			<uni-forms-item label="设备名称" name="data2">
-				<uni-easyinput type="text" v-model="formData.data2" placeholder="请输入设备名称" />
-			</uni-forms-item>
-			<uni-forms-item label="设备型号" name="data3">
-				<uni-easyinput type="text" v-model="formData.data3" placeholder="请输入设备型号" />
-			</uni-forms-item>
-			<uni-forms-item label="报警代码" name="data4">
-				<uni-easyinput type="text" v-model="formData.data4" placeholder="请输入报警代码" />
-			</uni-forms-item>
-			<uni-forms-item label="问题描述" name="data5">
-				<uni-easyinput type="textarea" v-model="formData.data5" placeholder="请输入问题描述" />
-			</uni-forms-item>
-			<button @click="submitForm">Submit</button>
-		</uni-forms>
+	<view class="repairIndex">
+		<view class="rightTop-urgency">
+			<text class="title">维修</text>
+			<button type="warn" size="mini" class="urgency_button" @click="goRepair">
+				<i class="iconfont icon-jinji"></i> 紧急报修
+			</button>
+		</view>
+		 <uni-segmented-control class="fixed" :current="current" :values="tabItems" styleType="text" activeColor="#34bfc6" @clickItem="onClickItem"></uni-segmented-control>
+		 <view class="content">
+		 	<view v-for="(item,index) in tabItems" v-if="current === index">
+		 		<list-nav :listData="listData"></list-nav>
+		 	</view>
+		 </view>
 	</view>
 </template>
 
 <script>
+	import ListNav from './list.vue'
 	export default {
+		components: {
+			ListNav
+		},
 		data() {
 			return {
-				formData:{
-					data1:'',
-					data2:'',
-					data3:'',
-					data4:'',
-					data5:'',
-				},
+				current: 0,
+				tabItems: ['全部','待处理','维修中','已完成','已取消'],
+				listData: [],
 			}
 		},
 		methods: {
-			submitForm(form) {
-				// 手动提交表单
-				this.$refs.form.submit().then((res)=>{
-					console.log('表单返回得值：', res)
-				})
+			onPullDownRefresh() {
+				setTimeout(function () {
+					uni.stopPullDownRefresh();
+				}, 1000);
+			},
+			onClickItem(val) {
+				this.current = val.currentIndex
+			},
+			goRepair() {
+				uni.navigateTo({
+				    url: '/pages/repairPage/repair',
+				});
+			},
+			findListData() {
+				if(this.current === 0) {
+					this.listData = [
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '待处理',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '待处理',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '处理中',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '维修中',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+					]
+				}else if(this.current === 1) {
+					this.listData = [
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '待处理',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '待处理',},
+					]
+				}else if(this.current === 2) {
+					this.listData = [
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '维修中',},
+					]
+				}else if(this.current === 3) {
+					this.listData = [
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
+					]
+				}else if(this.current === 4) {
+					this.listData = []
+				}
 			}
-		}
+		},
+		mounted() {
+			this.findListData()
+		},
+		watch: {
+			current(val) {
+				this.findListData()
+			}
+		},
 	}
 </script>
 
 <style lang="scss">
-	.repairPage {
-		padding: 2rem 1rem;
+	.repairIndex {
+		min-height: 100vh;
+		background: #efefef;
+		position: relative;
+		padding-bottom: 5.5rem;
+		.rightTop-urgency {
+			background: $main-title-color;
+			height: 4.4rem;
+			padding: 0 1rem;
+			position: fixed;
+			width: calc(100% - 2rem);
+			z-index: 1111;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.title {
+				color: #FFFFFF;
+				font-size: 1.6rem;
+			}
+			.urgency_button {
+				font-size: 1.2rem;
+				height: 2.6rem;
+				line-height: 2.6rem;
+				float: right;
+				border-radius: 1.5rem;
+				padding: 0 1rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				right: 1rem;
+				.iconfont {
+					margin-right: 0.2rem;
+				}
+			}
+		}
+		.fixed {
+			position: fixed;
+			width: 100%;
+			top: 4.4rem;
+			z-index: 1111;
+			background: #efefef;
+		}
+		.content {
+			padding-top: 8rem;
+		}
 	}
 </style>

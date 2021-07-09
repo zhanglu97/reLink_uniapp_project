@@ -15,7 +15,7 @@
 			<view class="tab-list">
 				<uni-segmented-control :current="current" :values="tabItems" styleType="text" activeColor="#34bfc6" @clickItem="onClickItem"></uni-segmented-control>
 				<view class="content">
-					<view v-show="current === 0">
+					<view v-show="current === 0" @click="goPage">
 						<device-page></device-page>
 					</view>
 					<view v-show="current === 1">
@@ -54,7 +54,12 @@
 			},
 			goRepair() {
 				uni.navigateTo({
-				    url: '/pages/repairPage/index',
+				    url: '/pages/repairPage/repair',
+				});
+			},
+			goPage() {
+				uni.switchTab({
+				    url: '/pages/DevicePage/index',
 				});
 			}
 		}
