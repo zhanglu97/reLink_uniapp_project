@@ -1,14 +1,5 @@
 <template>
 	<view class="listNav-shebei">
-		<!-- <view class="header">
-			<view class="header_login">
-				<view class="goback" @click="goBack()">
-					<my-icon type="back" size="18px" color="#FFFFFF"></my-icon>
-				</view>
-				<text class="title">设备实时运行一览</text>
-			</view>
-		</view> -->
-		
 		<view class="list">
 			<view class="list_nav">
 				<view class="left_img">
@@ -16,20 +7,20 @@
 				</view>
 				<view class="right_list">
 					<view class="nav">
-						<text class="nav-name">当前状态：</text>
-						<view class="nav-de" :class="{'jg':detailData.state == '加工','tj':detailData.state == '停机','bj':detailData.state == '报警',}">{{detailData.state}}</view>
+						<text class="nav-name">区位：</text>
+						<view class="nav-de">{{detailData.data1}}</view>
 					</view>
 					<view class="nav">
-						<text class="nav-name">设备名称：</text>
+						<text class="nav-name">名称：</text>
 						<view class="nav-de">{{detailData.name}}</view>
 					</view>
 					<view class="nav">
-						<text class="nav-name">设备编号：</text>
-						<view class="nav-de">{{detailData.bh}}</view>
+						<text class="nav-name">在产：</text>
+						<view class="nav-de">{{detailData.data3}} {{detailData.data4}}</view>
 					</view>
 					<view class="nav">
-						<text class="nav-name">今日加工：</text>
-						<view class="nav-de">{{detailData.today}}</view>
+						<text class="nav-name">状态：</text>
+						<view class="nav-de" :class="{'run':detailData.data2 == '运行','stop':detailData.data2 == '停机','bj':detailData.data2 == '报警','gj':detailData.data2 == '关机',}">{{detailData.data2}}</view>
 					</view>
 				</view>
 				<view class="clearBoth"></view>
@@ -38,27 +29,27 @@
 		
 		<view class="collapse_list">
 			<uni-collapse accordion="true" @change="changeNav">
-			    <uni-collapse-item title="运行时间" thumb="../../static/img/time.png" >
-			        <view style="padding: 20rpx;">
-			            <run-time></run-time>
-			        </view> 
-			    </uni-collapse-item>
-			    <uni-collapse-item title="实时数据" thumb="../../static/img/dataimg.png">
+			    <uni-collapse-item title="实时数据" thumb="../../../static/img/dataimg.png">
 			        <view style="padding: 20rpx;">
 			            <real-time-data></real-time-data>
 			        </view>
 			    </uni-collapse-item>
-			    <uni-collapse-item title="报警记录" thumb="../../static/img/warning.png">
+			    <uni-collapse-item title="时间统计" thumb="../../../static/img/time.png" >
+			        <view style="padding: 20rpx;">
+			            <run-time></run-time>
+			        </view> 
+			    </uni-collapse-item>
+			    <uni-collapse-item title="报警记录" thumb="../../../static/img/warning.png">
 			        <view style="padding: 20rpx;">
 			            <alarm-record></alarm-record>
 			        </view>
 			    </uni-collapse-item>
-			    <uni-collapse-item title="维护保养" thumb="../../static/img/weixiu.png">
+			    <uni-collapse-item title="点检维保" thumb="../../../static/img/weixiu.png">
 			        <view style="padding: 20rpx;">
 			            <maintain></maintain>
 			        </view>
 			    </uni-collapse-item>
-			    <uni-collapse-item title="定位数据" thumb="../../static/img/dingwei.png">
+			    <uni-collapse-item title="注册与定位" thumb="../../../static/img/dingwei.png">
 			        <view style="padding: 20rpx;">
 			           <location-data v-if="showMap"></location-data>
 			        </view>

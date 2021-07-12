@@ -3,10 +3,11 @@
 		<view class="mix-list-cell" :class="border" @click="eventClick" hover-class="cell-hover" :hover-stay-time="50">
 			<uni-icons v-if="icon" class="cell-icon yticon" :type="icon" size="20upx" :color="iconColor"></uni-icons>
 			<i v-if="fontIcon" class="iconfont" :class="fontIcon" :style="{'color': iconColor}"></i>
+			<image v-if="imgIcon" :src="imgIcon" mode="" class="imgicon"></image>
 			<text class="cell-tit clamp">{{title}}</text>
 			<text v-if="tips" class="cell-tip">{{tips}}</text>
 			<text class="cell-more yticon" :class="typeList[navigateType]"></text>
-			<i class="iconfont icon-jiantouarrow483 jt"></i>
+			<uni-icons type="arrowright" size="20upx"></uni-icons>
 		</view>
 
 	</view>
@@ -30,6 +31,10 @@
 				default: ''
 			},
 			fontIcon: {
+				type: String,
+				default: ''
+			},
+			imgIcon: {
 				type: String,
 				default: ''
 			},
@@ -76,9 +81,10 @@
 	.mix-list-cell {
 		display: flex;
 		align-items: baseline;
-		padding: 20upx;
-		line-height: 60upx;
+		padding: 1rem;
+		line-height: 3rem;
 		position: relative;
+		align-items: center;
 
 		&.cell-hover {
 			background: #fafafa;
@@ -113,6 +119,10 @@
 		.cell-tip {
 			font-size: $font-sm+2upx;
 			color: $font-color-light;
+		}
+		.imgicon {
+			width: 1.6rem;
+			height: 1.6rem;
 		}
 	}
 </style>

@@ -5,16 +5,16 @@
 		</view>
 		<view class="device_list">
 			<view class="item" @click="goPage('/pages/DevicePage/deviceList/index')">
-				<list-cell fontIcon="icon-shebei" iconColor="#347eeb" title="设备列表"></list-cell>
+				<list-cell imgIcon="../../static/img/device-icon1.png" iconColor="#347eeb" title="设备列表"></list-cell>
 			</view>
 			<view class="item" @click="goPage('/pages/DevicePage/spotCheck/index')">
-				<list-cell fontIcon="icon-dianjian" iconColor="#4caf50" title="点检"></list-cell>
+				<list-cell imgIcon="../../static/img/device-icon2.png" iconColor="#4caf50" title="点检"></list-cell>
 			</view>
-			<view class="item" @click="goPage('/pages/minePage/about')">
-				<list-cell fontIcon="icon-baojing1" iconColor="#ff5722" title="报警记录"></list-cell>
+			<view class="item" @click="goPage('/pages/DevicePage/giveAlarm/index')">
+				<list-cell imgIcon="../../static/img/device-icon3.png" iconColor="#ff5722" title="报警记录"></list-cell>
 			</view>
-			<view class="item" @click="goPage('/pages/minePage/about')">
-				<list-cell fontIcon="icon-weixiu" iconColor="#03a9f4" title="维修记录"></list-cell>
+			<view class="item" @click="goPage('/pages/DevicePage/recordLog/index')">
+				<list-cell imgIcon="../../static/img/device-icon4.png" iconColor="#03a9f4" title="维修记录"></list-cell>
 			</view>
 		</view>
 	</view>

@@ -2,14 +2,14 @@
 	<view class="runTime">
 		<view class="leftNav">
 			<view class="item">
-				<view class="bt jg">加工</view>
-				<view class="time jg">
+				<view class="bt run">运行</view>
+				<view class="time run">
 					<text>1109 时 15 分</text>
 				</view>
 			</view>
 			<view class="item">
-				<view class="bt tj">停机</view>
-				<view class="time tj">
+				<view class="bt stop">停机</view>
+				<view class="time stop">
 					<text>311 时 22 分</text>
 				</view>
 			</view>
@@ -39,7 +39,7 @@ export default {
 	data() {
 		return {
 			option: {
-				color: ['#4cd964','#f0ad4e','#dd524d','#909399'],
+				color: ['#67c23a','#e6a23c','#f56c6c','#909399'],
 				series: [
 					{
 						name: '',
@@ -60,7 +60,7 @@ export default {
 							show: false
 						},
 						data: [
-							{value: 1048, name: '加工'},
+							{value: 1048, name: '运行'},
 							{value: 735, name: '停机'},
 							{value: 580, name: '报警'},
 							{value: 484, name: '关机'},
@@ -98,40 +98,36 @@ export default {
 				margin-right: 20upx;
 				text-align: center;
 
-				&.jg {
-					background-color: $uni-color-success;
+				&.run {
+					background-color: $button-run;
 				}
 
-				&.tj {
-					background-color: $uni-color-warning;
+				&.stop {
+					background-color: $button-stop;
 				}
 
 				&.bj {
-					background-color: $uni-color-error;
+					background-color: $button-bj;
 				}
 
 				&.gj {
-					background-color: $uni-color-close;
+					background-color: $button-gj;
 				}
 			}
 
 			.time {
 				font-size: $font-base;
-
-				&.jg {
-					color: $uni-color-success;
+				&.run {
+					color: $button-run;
 				}
-
-				&.tj {
-					color: $uni-color-warning;
+				&.stop {
+					color: $button-stop;
 				}
-
 				&.bj {
-					color: $uni-color-error;
+					color: $button-bj;
 				}
-
 				&.gj {
-					color: $uni-color-close;
+					color: $button-gj;
 				}
 			}
 		}

@@ -10,32 +10,6 @@
 			</view>
 		</view> -->
 		
-		<view class="list">
-			<view class="list_nav" v-for="(item, index) in listNav" :key="index"  @click="goDetail(item)">
-				<view class="left_img">
-					<image class="imgUrl" :src="item.imgUrl" mode="aspectFit"></image>
-				</view>
-				<view class="right_list">
-					<view class="nav">
-						<text class="nav-name">当前状态：</text>
-						<view class="nav-de" :class="{'jg':item.state == '加工','tj':item.state == '停机','bj':item.state == '报警',}">{{item.state}}</view>
-					</view>
-					<view class="nav">
-						<text class="nav-name">设备名称：</text>
-						<view class="nav-de">{{item.name}}</view>
-					</view>
-					<view class="nav">
-						<text class="nav-name">设备编号：</text>
-						<view class="nav-de">{{item.bh}}</view>
-					</view>
-					<view class="nav">
-						<text class="nav-name">今日加工：</text>
-						<view class="nav-de">{{item.today}}</view>
-					</view>
-				</view>
-				<view class="clearBoth"></view>
-			</view>
-		</view>
 	</view>
 </template>
 

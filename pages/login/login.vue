@@ -16,7 +16,7 @@
 						<uni-icons type="contact" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
-						<input v-model="name" class="uni-input" focus placeholder="请输入用户名" />
+						<input v-model="userLogin.name" class="uni-input" focus placeholder="请输入用户名" />
 					</view>
 				</view>
 				<view class="list">
@@ -24,7 +24,7 @@
 						<uni-icons type="locked" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
-						<input v-model="password" class="uni-input" placeholder="请输入密码" @confirm="login()" />
+						<input v-model="userLogin.password" class="uni-input" placeholder="请输入密码" @confirm="login()" />
 					</view>
 				</view>
 			</view>
@@ -34,7 +34,7 @@
 						<uni-icons type="phone" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
-						<input v-model="phone" class="uni-input" focus placeholder="请输入手机号" />
+						<input v-model="userLogin.phone" class="uni-input" focus placeholder="请输入手机号" />
 					</view>
 				</view>
 				<view class="list">
@@ -42,7 +42,7 @@
 						<uni-icons type="locked" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
-						<input v-model="code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
+						<input v-model="userLogin.code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
 					</view>
 				</view>
 			</view>
@@ -61,15 +61,18 @@
 	export default {
 		data() {
 			return {
-				name: '',
-				password: '',
-				phone: '',
-				code: '',
+				userLogin: {
+					name: '',
+					password: '',
+					phone: '',
+					code: '',
+				},
 				loginType: 0
 			};
 		},
+		
 		onLoad() {
-
+			
 		},
 		methods: {
 			changeType(type) {
@@ -77,18 +80,18 @@
 			},
 			login() {
 				if( this.loginType == 0 ) {
-					if (!this.name) {
+					if (!this.userLogin.name) {
 						this.$api.msg('请输入用户名')
 						return;
 					}
-					if (!this.password) {
+					if (!this.userLogin.password) {
 						this.$api.msg('请输入密码')
 						return;
 					}
-				}else if( this.loginType == 1 ) {
-					if(this.phone) {
+				}else if( this.userLogin.loginType == 1 ) {
+					if(this.userLogin.phone) {
         				const reg = /^1[3|4|5|7|8][0-9]\d{8}$/
-						if (!reg.test(this.phone)) {
+						if (!reg.test(this.userLogin.phone)) {
 							this.$api.msg('请输入正确的手机号!');
 							return;
 						}
@@ -96,11 +99,16 @@
 						this.$api.msg('请输入手机号')
 						return;
 					}
-					if (!this.code) {
+					if (!this.userLogin.code) {
 						this.$api.msg('请输入验证码')
 						return;
 					}
 				}
+				uni.setStorage({
+				    key: 'userInfo',
+				    data: this.userLogin,
+				});
+				uni.setStorageSync('token',1);
 				uni.switchTab({
 					url: '/pages/HomePage/index'
 				})
@@ -113,22 +121,24 @@
 	.login {
 		height: 100%;
 		position: relative;
+		min-height: 100vh;
 		.bg_color {
 			background: $main-title-color;
 			height: 35%;
+			min-height: 50vh;
 			display: flex;
 			justify-content: center;
-			align-items: center;
 			.login-logo {
 				width: 20rem;
 				height: 6rem;
+				z-index: 1111;
 			}
 		}
 		.con {
 			position: absolute;
 			width: calc(90% - 4rem);
 			left: 5%;
-			top: 25%;
+			top: 30vh;
 			background: #FFFFFF;
 			box-shadow: 0 0 1rem #a3c8ca;
 			padding: 2rem 2rem;

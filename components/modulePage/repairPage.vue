@@ -19,12 +19,12 @@
 					<th width="10%">编号</th>
 					<th width="15%">状态</th>
 				</tr>
-				<tr v-for="(item,index) in tableData">
+				<tr v-for="(item,index) in tableData" @click="goDetail(item)">
 					<td width="35%">{{item.data1}}</td>
 					<td width="25%">{{item.data2}}</td>
 					<td width="15%">{{item.data3}}</td>
 					<td width="10%">{{item.data4}}</td>
-					<td width="15%" :class="{'nohaved': item.data5=='待响应','haved': item.data5=='维修中'}">{{item.data5}}</td>
+					<td width="15%" :class="{'nohaved': item.data8=='待响应','haved': item.data8=='维修中'}">{{item.data8}}</td>
 				</tr>				
 			</table>
 		</view>
@@ -41,38 +41,45 @@
 					data2: '1#车间机加线',
 					data3: '数控立车',
 					data4: 'SC01',
-					data5: '待响应',
+					data8: '待响应',
+				},{
+					data1: '2021-03-12 13:41:55',
+					data2: '2#车间机加线',
+					data3: '数控立车',
+					data4: 'SC01',
+					data8: '维修中',
+				},{
+					data1: '2021-03-12 13:41:55',
+					data2: '1#车er加线',
+					data3: '数控立车',
+					data4: 'SC01',
+					data8: '维修中',
 				},{
 					data1: '2021-03-12 13:41:55',
 					data2: '1#车间机加线',
 					data3: '数控立车',
 					data4: 'SC01',
-					data5: '维修中',
+					data8: '已完成',
 				},{
 					data1: '2021-03-12 13:41:55',
 					data2: '1#车间机加线',
 					data3: '数控立车',
 					data4: 'SC01',
-					data5: '维修中',
+					data8: '已完成',
 				},{
 					data1: '2021-03-12 13:41:55',
 					data2: '1#车间机加线',
 					data3: '数控立车',
 					data4: 'SC01',
-					data5: '已完成',
-				},{
-					data1: '2021-03-12 13:41:55',
-					data2: '1#车间机加线',
-					data3: '数控立车',
-					data4: 'SC01',
-					data5: '已完成',
-				},{
-					data1: '2021-03-12 13:41:55',
-					data2: '1#车间机加线',
-					data3: '数控立车',
-					data4: 'SC01',
-					data5: '已取消',
+					data8: '已取消',
 				}]
+			}
+		},
+		methods: {
+			goDetail(val) {
+				uni.navigateTo({
+				    url: '/pages/repairPage/detail?detailData=' + encodeURIComponent(JSON.stringify(val)),
+				});
 			}
 		}
 	}

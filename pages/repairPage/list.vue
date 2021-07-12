@@ -60,7 +60,7 @@
 		}
 		.nav {
 			background: #FFFFFF;
-			margin-top: 0.5rem;
+			border-top: 1px solid #eeeeee;
 			padding: 1rem;
 			.left {
 				width: calc(100% - 6rem);

@@ -1,13 +1,10 @@
 <template>
 	<view class="repairIndex">
-		<view class="rightTop-urgency">
-			<text class="title">维修</text>
-			<button type="warn" size="mini" class="urgency_button" @click="goRepair">
-				<i class="iconfont icon-jinji"></i> 紧急报修
-			</button>
+		<nav-header title="维修" :isUrgency="true"></nav-header>
+		<view class="fixed">
+			<uni-segmented-control :current="current" :values="tabItems" styleType="text" activeColor="#34bfc6" @clickItem="onClickItem"></uni-segmented-control>
 		</view>
-		 <uni-segmented-control class="fixed" :current="current" :values="tabItems" styleType="text" activeColor="#34bfc6" @clickItem="onClickItem"></uni-segmented-control>
-		 <view class="content">
+		<view class="content">
 		 	<view v-for="(item,index) in tabItems" v-if="current === index">
 		 		<list-nav :listData="listData"></list-nav>
 		 	</view>
@@ -16,10 +13,11 @@
 </template>
 
 <script>
+	import navHeader from "@/components/navHeader.vue"
 	import ListNav from './list.vue'
 	export default {
 		components: {
-			ListNav
+			ListNav,navHeader
 		},
 		data() {
 			return {
@@ -36,11 +34,6 @@
 			},
 			onClickItem(val) {
 				this.current = val.currentIndex
-			},
-			goRepair() {
-				uni.navigateTo({
-				    url: '/pages/repairPage/repair',
-				});
 			},
 			findListData() {
 				if(this.current === 0) {
@@ -86,50 +79,12 @@
 
 <style lang="scss">
 	.repairIndex {
-		min-height: 100vh;
-		background: #efefef;
 		position: relative;
-		padding-bottom: 5.5rem;
-		.rightTop-urgency {
-			background: $main-title-color;
-			height: 4.4rem;
-			padding: 0 1rem;
-			position: fixed;
-			width: calc(100% - 2rem);
-			z-index: 1111;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			.title {
-				color: #FFFFFF;
-				font-size: 1.6rem;
-			}
-			.urgency_button {
-				font-size: 1.2rem;
-				height: 2.6rem;
-				line-height: 2.6rem;
-				float: right;
-				border-radius: 1.5rem;
-				padding: 0 1rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				position: absolute;
-				right: 1rem;
-				.iconfont {
-					margin-right: 0.2rem;
-				}
-			}
-		}
 		.fixed {
-			position: fixed;
 			width: 100%;
-			top: 4.4rem;
-			z-index: 1111;
-			background: #efefef;
+			padding-top: 9rem;
 		}
 		.content {
-			padding-top: 8rem;
 		}
 	}
 </style>

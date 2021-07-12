@@ -58,14 +58,14 @@ export default {
 
 <style lang="scss" scoped>
 .changePassword {
-	padding: 20upx;
+	padding: 1rem;
 	.submit {
 		background-color: $main-title-color;
 		color: #FFFFFF;
-		border-radius: 60upx;
-		height: 70upx;
-		line-height: 70upx;
-		margin-top: 40upx;
+		border-radius: 2rem;
+		height: 4rem;
+		line-height: 4rem;
+		margin-top: 2rem;
 		font-size: 14px;
 	}
 }

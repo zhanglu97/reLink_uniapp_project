@@ -13,8 +13,7 @@
 		}, {
 			"path": "pages/repairPage/index",
 			"style": {
-				"navigationStyle": "custom",
-				"enablePullDownRefresh": true
+				"navigationStyle": "custom"
 			}
 		}, {
 			"path": "pages/repairPage/repair",
@@ -34,24 +33,32 @@
 		}, {
 			"path": "pages/DevicePage/deviceList/index",
 			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "设备列表"
+				"navigationStyle": "custom"
 			}
-		},{
+		}, {
+			"path": "pages/DevicePage/deviceList/listNav",
+			"style": {
+				"navigationBarTitleText": "设备详情"
+			}
+		}, {
 			"path": "pages/DevicePage/spotCheck/index",
 			"style": {
 				"navigationBarTitleText": "点检"
 			}
 		}, {
-			"path": "pages/FirstPage/index",
+			"path": "pages/DevicePage/giveAlarm/index",
 			"style": {
-				// "navigationStyle": "custom"
-				"navigationBarTitleText": "设备实时运行一览"
+				"navigationBarTitleText": "报警记录"
 			}
 		}, {
-			"path": "pages/FirstPage/listNav",
+			"path": "pages/DevicePage/recordLog/index",
 			"style": {
-				"navigationBarTitleText": "设备详情"
+				"navigationBarTitleText": "维修记录"
+			}
+		}, {
+			"path": "pages/AlarmPage/index",
+			"style": {
+				"navigationBarTitleText": "报警"
 			}
 		}, {
 			"path": "pages/minePage/index",
@@ -64,9 +71,19 @@
 				"navigationBarTitleText": "修改密码"
 			}
 		}, {
+			"path": "pages/login/changephone",
+			"style": {
+				"navigationBarTitleText": "修改手机号"
+			}
+		}, {
 			"path": "pages/minePage/about",
 			"style": {
-				"navigationBarTitleText": "关于我们"
+				"navigationBarTitleText": "关于睿采智连"
+			}
+		}, {
+			"path": "pages/minePage/help",
+			"style": {
+				"navigationBarTitleText": "帮助与反馈"
 			}
 		}
 	],
@@ -90,7 +107,7 @@
 				"iconPath": "static/img/device-outline.png",
 				"selectedIconPath": "static/img/device.png"
 			}, {
-				"pagePath": "pages/FirstPage/index",
+				"pagePath": "pages/AlarmPage/index",
 				"text": "报警",
 				"iconPath": "static/img/alarm-outline.png",
 				"selectedIconPath": "static/img/alarm.png"

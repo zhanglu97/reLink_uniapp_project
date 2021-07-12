@@ -1,43 +1,76 @@
 <template>
 	<view class="minePage">
+		<nav-header title=""></nav-header>
 		<view class="user-section">
-			<view class="user-info-box">
-				<view class="portrait-box" @click="goPage('/pages/login/login')">
+			<view class="user-info-box" v-if="isLogin">
+				<view class="portrait-box">
 					<image class="portrait" src="/static/img/defaultUser.png"></image>
 				</view>
 				<view class="info-box">
-					<text class="username">登录</text>
+					<view class="username">{{userInfo.name}}</view>
+					<view class="dept">{{userInfo.dept}}</view>
+				</view>
+			</view>
+			<view class="user-info-box" v-else>
+				<view class="portrait-box">
+					<image @click="goPage('/pages/login/login')" class="portrait" src="/static/img/defaultUser.png"></image>
+				</view>
+				<view class="info-box">
+					<view class="username">请登录</view>
 				</view>
 			</view>
 		</view>
 		<view class="cover-container">
 			<view class="history-section icon">
-				<view @click="goPage('/pages/login/changePassword')">
-					<list-cell icon="locked" iconColor="#5fcda2" title="修改密码"></list-cell>
+				<view class="line" @click="goPage('/pages/login/changePassword')">
+					<list-cell icon="locked" iconColor="#03a9f4" title="修改密码"></list-cell>
 				</view>
-				<view @click="goPage('/pages/minePage/about')">
-					<list-cell icon="info" iconColor="#347eeb" title="关于我们"></list-cell>
+				<view class="line" @click="goPage('/pages/login/changephone')">
+					<list-cell icon="phone" iconColor="#00bcd4" title="修改手机号"></list-cell>
+				</view>
+				<view class="line" @click="goPage('/pages/minePage/about')">
+					<list-cell icon="info" iconColor="#ff9800" title="睿采智连"></list-cell>
+				</view>
+				<view class="line" @click="goPage('/pages/minePage/help')">
+					<list-cell icon="email" iconColor="#8bc34a" title="帮助与反馈"></list-cell>
 				</view>
 			</view>
 		</view>
+		<view v-if="isLogin" class="loginOut" @click="loginOut()">退出</view>
 	</view>
 </template>
 <script>
 	import listCell from '@/components/mix-list-cell';
+	import navHeader from "@/components/navHeader.vue"
 	let startY = 0,
 		moveY = 0,
 		pageAtTop = true;
 	export default {
 		components: {
-			listCell,
+			listCell,navHeader
 		},
 		data() {
 			return {
-
+				isLogin: false,
+				userInfo: {
+					name: '张三',
+					dept: '生产部 维修组'
+				},
 			}
 		},
-		onLoad() {
-
+		onShow() {
+			this.goNextToken("pages/HomePage/index")
+			let _this = this
+			uni.getStorage({
+			    key: 'userInfo',
+			    success: function (res) {
+					if(!res.data) {
+						_this.isLogin = false
+					}else{
+						_this.isLogin = true
+					}
+			    }
+			});
 		},
 		methods: {
 			goPage(data) {
@@ -45,69 +78,96 @@
 					url: data
 				})
 			},
+			loginOut() {
+				uni.removeStorage({
+				    key: 'userInfo',
+				});
+				uni.removeStorageSync('token');
+				uni.clearStorageSync();
+				uni.clearStorage();
+				uni.reLaunch({
+				    url: '/pages/login/login'
+				});
+			}
 		},
-		onPullDownRefresh() {
-			setTimeout(function() {
-				uni.stopPullDownRefresh();
-			}, 2000);
+		mounted() {
+			let _this = this
+			uni.getStorage({
+			    key: 'userInfo',
+			    success: function (res) {
+					if(!res.data) {
+						_this.isLogin = false
+					}else{
+						_this.isLogin = true
+					}
+			    }
+			});
 		}
 	}
 </script>
 <style lang="scss">
 	.minePage {
+		background: #f2f2f2;
+		min-height: 100vh;
 		%flex-center {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
-
 		%section {
 			display: flex;
 			justify-content: space-around;
 			align-content: center;
 			background: #fff;
-			border-radius: 10upx;
+			border-radius: 0.5rem;
 		}
-
 		.user-section {
-			height: 218upx;
+			padding-top: 9rem;
 			position: relative;
-			background: url(../../static/img/userBg.png);
+			background: $main-title-color;
 			background-size: cover;
-			padding: 40upx 80upx 0;
-		}
-
-		.user-info-box {
-			height: 180upx;
-			display: flex;
-			align-items: center;
-			position: relative;
-			z-index: 1;
-
-			.portrait {
-				width: 100upx;
-				height: 100upx;
-				border: 5upx solid #fff;
-				border-radius: 50%;
+			.user-info-box {
+				display: flex;
+				align-items: center;
+				position: relative;
+				z-index: 1;
+				padding: 2rem;
+				.portrait {
+					width: 6rem;
+					height: 6rem;
+					border: 2px solid #fff;
+					border-radius: 50%;
+				}
+				.username {
+					color: $font-color-white;
+					margin: 0 0rem 1rem 1rem;
+					font-size: 2rem;
+				}
+				.dept {
+					font-size: 1.2rem;
+					margin-left: 1rem;
+					color: $font-color-white;
+				}
 			}
-
-			.username {
-				font-size: $font-lg + 6upx;
-				color: $font-color-white;
-				margin-left: 20upx;
-			}
 		}
-
 		.cover-container {
 			position: relative;
-			padding-bottom: 20upx;
+			.history-section {
+				margin-top: 1rem;
+				background: #fff;
+				border-radius: 0.5rem;
+				.line {
+					border-bottom: 1px solid #EEEEEE;
+				}
+			}
 		}
-
-		.history-section {
-			margin-top: 20upx;
-			background: #fff;
-			border-radius: 10upx;
+		.loginOut {
+			height: 4rem;
+			line-height: 4rem;
+			text-align: center;
+			background: #FFFFFF;
+			margin-top: 1rem;
 		}
 	}
 </style>
