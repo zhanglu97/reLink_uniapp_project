@@ -91,7 +91,7 @@
 		box-sizing: border-box;
 		/* #endif */
 		flex-direction: row;
-		height: 36px;
+		height: 40px;
 		overflow: hidden;
 		/* #ifdef H5 */
 		cursor: pointer;

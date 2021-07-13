@@ -9,15 +9,17 @@
 		 		<list-nav :listData="listData"></list-nav>
 		 	</view>
 		 </view>
+		<tabBar currentPage="/pages/repairPage/index"></tabBar>
 	</view>
 </template>
 
 <script>
+	import tabBar from "@/components/tabBar.vue"
 	import navHeader from "@/components/navHeader.vue"
 	import ListNav from './list.vue'
 	export default {
 		components: {
-			ListNav,navHeader
+			tabBar,ListNav,navHeader
 		},
 		data() {
 			return {
@@ -42,6 +44,7 @@
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '待处理',},
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '处理中',},
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '处理中',},
+						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '维修中',},
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '维修中',},
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
 						{ data1: 'F2103120092', data2: '上海远大', data3: '1#车间机加线', data4: '数控立车', data5: 'SC01', data6: '李俊如', data7: '2021-03-12', data8: '已完成',},
@@ -81,11 +84,19 @@
 <style lang="scss">
 	.repairIndex {
 		position: relative;
+		min-height: 100vh;    
+		background: #f2f2f2;
 		.fixed {
 			width: 100%;
 			padding-top: 9rem;
+			    position: fixed;
+			    top: 0;
+			    z-index: 111;
+			    background: #ffffff;
 		}
 		.content {
+			padding-top: 13rem;
+			padding-bottom: 6rem;
 		}
 	}
 </style>

@@ -60,7 +60,7 @@
 				// 手动提交表单
 				this.$refs.form.validate().then((res)=>{
 					console.log(res)
-					uni.switchTab({
+					uni.navigateTo({
 					    url: '/pages/repairPage/index',
 					});
 				})

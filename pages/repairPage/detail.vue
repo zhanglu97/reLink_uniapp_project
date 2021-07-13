@@ -112,7 +112,7 @@
 			},
 			goChat() {
 				uni.navigateTo({
-					url: '/pages/ChatRoom/home/home'
+					url: '/pages/ChatRoom/Home/home'
 				})
 			}
 		}

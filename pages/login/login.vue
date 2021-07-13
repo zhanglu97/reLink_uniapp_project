@@ -109,7 +109,7 @@
 				    data: this.userLogin,
 				});
 				uni.setStorageSync('token',1);
-				uni.switchTab({
+				uni.navigateTo({
 					url: '/pages/HomePage/index'
 				})
 			},

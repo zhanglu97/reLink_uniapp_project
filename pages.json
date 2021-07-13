@@ -85,43 +85,54 @@
 			"style": {
 				"navigationBarTitleText": "帮助与反馈"
 			}
+		}, {
+			"path": "pages/ChatRoom/Home/home",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/ChatRoom/AddressBook/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarBackgroundColor": "#34bfc6",
 		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": { //底部导航
-		"color": "#cccccc",
-		"selectedColor": "#34bfc6",
-		"backgroundColor": "#FFFFFF",
-		"list": [{
-				"pagePath": "pages/HomePage/index",
-				"text": "首页",
-				"iconPath": "static/img/home-outline.png",
-				"selectedIconPath": "static/img/home.png"
-			}, {
-				"pagePath": "pages/DevicePage/index",
-				"text": "设备",
-				"iconPath": "static/img/device-outline.png",
-				"selectedIconPath": "static/img/device.png"
-			}, {
-				"pagePath": "pages/AlarmPage/index",
-				"text": "报警",
-				"iconPath": "static/img/alarm-outline.png",
-				"selectedIconPath": "static/img/alarm.png"
-			}, {
-				"pagePath": "pages/repairPage/index",
-				"text": "报修",
-				"iconPath": "static/img/repair-outline.png",
-				"selectedIconPath": "static/img/repair.png"
-			}, {
-				"pagePath": "pages/minePage/index",
-				"text": "我的",
-				"iconPath": "static/img/mine-outline.png",
-				"selectedIconPath": "static/img/mine.png"
-			}
-		]
 	}
+	// ,
+	// "tabBar": { //底部导航
+	// 	"color": "#cccccc",
+	// 	"selectedColor": "#34bfc6",
+	// 	"backgroundColor": "#FFFFFF",
+	// 	"list": [{
+	// 			"pagePath": "pages/HomePage/index",
+	// 			"text": "首页",
+	// 			"iconPath": "static/img/home-outline.png",
+	// 			"selectedIconPath": "static/img/home.png"
+	// 		}, {
+	// 			"pagePath": "pages/DevicePage/index",
+	// 			"text": "设备",
+	// 			"iconPath": "static/img/device-outline.png",
+	// 			"selectedIconPath": "static/img/device.png"
+	// 		}, {
+	// 			"pagePath": "pages/AlarmPage/index",
+	// 			"text": "报警",
+	// 			"iconPath": "static/img/alarm-outline.png",
+	// 			"selectedIconPath": "static/img/alarm.png"
+	// 		}, {
+	// 			"pagePath": "pages/repairPage/index",
+	// 			"text": "报修",
+	// 			"iconPath": "static/img/repair-outline.png",
+	// 			"selectedIconPath": "static/img/repair.png"
+	// 		}, {
+	// 			"pagePath": "pages/minePage/index",
+	// 			"text": "我的",
+	// 			"iconPath": "static/img/mine-outline.png",
+	// 			"selectedIconPath": "static/img/mine.png"
+	// 		}
+	// 	]
+	// }
 }

@@ -81,11 +81,6 @@ export default {
 		this.detailData = JSON.parse(option.detailData)
 	},
 	methods: {
-		goBack() {
-			uni.switchTab({
-				url:"/pages/FirstPage/index"
-			})
-		},
 		changeNav(e) {
 			var _this = this
 			if(e[0] == 4) {

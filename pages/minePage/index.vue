@@ -37,9 +37,12 @@
 			</view>
 		</view>
 		<view v-if="isLogin" class="loginOut" @click="loginOut()">退出</view>
+		
+		<tabBar currentPage="/pages/minePage/index"></tabBar>
 	</view>
 </template>
 <script>
+	import tabBar from "@/components/tabBar.vue"
 	import listCell from '@/components/mix-list-cell';
 	import navHeader from "@/components/navHeader.vue"
 	let startY = 0,
@@ -47,7 +50,7 @@
 		pageAtTop = true;
 	export default {
 		components: {
-			listCell,navHeader
+			tabBar,listCell,navHeader
 		},
 		data() {
 			return {

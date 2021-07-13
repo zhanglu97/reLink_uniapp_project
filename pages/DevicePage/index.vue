@@ -17,15 +17,17 @@
 				<list-cell imgIcon="../../static/img/device-icon4.png" iconColor="#03a9f4" title="维修记录"></list-cell>
 			</view>
 		</view>
+		<tabBar currentPage="/pages/DevicePage/index"></tabBar>
 	</view>
 </template>
 
 <script>
+	import tabBar from "@/components/tabBar.vue"
 	import devicePage from "@/components/modulePage/devicePage.vue"
 	import listCell from '@/components/mix-list-cell'
 	export default {
 		components: {
-			devicePage,listCell,
+			tabBar,devicePage,listCell,
 		},
 		data() {
 			return {

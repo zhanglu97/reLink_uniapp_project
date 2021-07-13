@@ -21,11 +21,16 @@
 				<view class="clearBoth"></view>
 			</view>
 		</view>
+		<tabBar currentPage="/pages/AlarmPage/index"></tabBar>
 	</view>
 </template>
 
 <script>
+	import tabBar from "@/components/tabBar.vue"
 	export default {
+		components: {
+			tabBar
+		},
 		data() {
 			return {
 				listData: [

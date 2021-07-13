@@ -1,11 +1,11 @@
 <template>
-	<view class="navHeader">
+	<view class="navHeader"  :style="{background: backgroundColor}">
 		<view class="tabs" :style="{height: navbarHeight + 'px'}"></view>
-		<uni-nav-bar :title="title" backgroundColor="#34bfc6" color="#ffffff" v-if="title == '设备列表'" id="navbar"
+		<uni-nav-bar :title="title" :backgroundColor="backgroundColor" color="#ffffff" v-if="title == '设备列表'" id="navbar"
 			:leftIcon="leftIcon" :rightIcon="rightIcon"  @clickLeft="clickLeft"  @clickRight="clickRight"
 		></uni-nav-bar>
 		
-		<uni-nav-bar :title="title" backgroundColor="#34bfc6" color="#ffffff" v-else id="navbar">
+		<uni-nav-bar :title="title" :backgroundColor="backgroundColor" color="#ffffff" v-else id="navbar" :leftIcon="leftIcon"  @clickLeft="clickLeft2">
 			<button type="warn" size="mini" class="urgency_button" @click="goRepair" v-if="isUrgency">
 				<image src="../static/img/jinji.png" mode="" class="iconfont"></image> 紧急报修
 			</button>
@@ -29,6 +29,10 @@
 				type: String,
 				default: 'settings'
 			},
+			backgroundColor: {
+				type: String,
+				default: '#34bfc6'
+			},
 			isUrgency: {
 				type: Boolean,
 				default: false
@@ -46,9 +50,12 @@
 				});
 			},
 			clickLeft() {
-				uni.switchTab({
+				uni.navigateTo({
 				    url: '/pages/DevicePage/index',
 				});
+			},
+			clickLeft2() {
+				this.$emit("getclickLeft");
 			},
 			clickRight() {
 				this.$emit("getclickRight");
@@ -65,7 +72,6 @@
 
 <style lang="scss">
 	.navHeader {
-		background: #34bfc6;
 		position: fixed;
 		width: 100%;
 		z-index: 11111;

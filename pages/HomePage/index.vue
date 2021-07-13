@@ -26,10 +26,12 @@
 				</view>
 			</view>
 		</view>
+		<tabBar currentPage="/pages/HomePage/index"></tabBar>
 	</view>
 </template>
 
 <script>
+	import tabBar from "@/components/tabBar.vue"
 	import navHeader from "@/components/navHeader.vue"
 	import devicePage from "@/components/modulePage/devicePage.vue"
 	import alarmPage from "@/components/modulePage/alarmPage.vue"
@@ -37,7 +39,7 @@
 	import maintainPage from "@/components/modulePage/maintainPage.vue"
 	export default {
 		components: {
-			navHeader,devicePage,alarmPage,repairPage,maintainPage
+			tabBar,navHeader,devicePage,alarmPage,repairPage,maintainPage
 		},
 		data() {
 			return {
@@ -51,7 +53,7 @@
 				this.current = val.currentIndex
 			},
 			goPage(val) {
-				uni.switchTab({
+				uni.navigateTo({
 				    url: val,
 				});
 			}

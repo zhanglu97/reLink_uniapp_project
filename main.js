@@ -20,6 +20,8 @@ import uniListItem from '@/uni_modules/uni-list/components/uni-list-item/uni-lis
 import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue'
 import uniPopupDialog from '@/uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog.vue'
 import uniTransition from '@/uni_modules/uni-transition/components/uni-transition/uni-transition.vue'
+import uniSwipeAction from '@/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue'
+import uniSwipeActionItem from '@/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue'
 Vue.component('uniIcons', uniIcons);
 Vue.component('uniNoticeBar', uniNoticeBar);
 Vue.component('uniSegmentedControl', uniSegmentedControl);
@@ -36,6 +38,9 @@ Vue.component('uniListItem', uniListItem);
 Vue.component('uniPopup', uniPopup);
 Vue.component('uniPopupDialog', uniPopupDialog);
 Vue.component('uniTransition', uniTransition);
+Vue.component('uniSwipeAction', uniSwipeAction);
+Vue.component('uniSwipeActionItem', uniSwipeActionItem);
+
 const msg = (title, duration=1500, mask=false, icon='none')=>{
 	//统一提示方便全局修改
 	if(Boolean(title) === false){
