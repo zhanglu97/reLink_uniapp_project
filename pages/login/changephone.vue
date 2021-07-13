@@ -2,13 +2,13 @@
 	<view class="changephone">
 		 <uni-forms ref="form" :value="formData" :rules="rules">
 			<uni-forms-item label="用户名" name="name">
-				<input type="text" v-model="formData.name" placeholder="请输入用户名" />
+				<uni-easyinput type="text" v-model="formData.name" placeholder="请输入用户名" />
 			</uni-forms-item>
 			<uni-forms-item label="原手机号" name="phone">
-				<input class="input" v-model="formData.phone" type="text" placeholder="请输入原手机号"  />
+				<uni-easyinput class="input" v-model="formData.phone" type="text" placeholder="请输入原手机号"  />
 			</uni-forms-item>
 			<uni-forms-item label="新手机号" name="newphone">
-				<input class="input" v-model="formData.newphone" type="text" placeholder="请输入新手机号"  />
+				<uni-easyinput class="input" v-model="formData.newphone" type="text" placeholder="请输入新手机号"  />
 			</uni-forms-item>
 			<button class="submit" @click="submit">提交</button>
 		</uni-forms>

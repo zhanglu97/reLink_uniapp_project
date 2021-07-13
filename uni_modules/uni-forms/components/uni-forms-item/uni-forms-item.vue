@@ -198,7 +198,7 @@ export default {
 				this.labelPos = this.labelPosition ? this.labelPosition : labelPosition;
 
 				if(this.label){
-					this.labelWid = (this.labelWidth ? this.labelWidth : (labelWidth||65))
+					this.labelWid = (this.labelWidth ? this.labelWidth : (labelWidth||70))
 				}else{
 					this.labelWid =( this.labelWidth ? this.labelWidth : (labelWidth||'auto'))
 				}

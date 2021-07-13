@@ -51,7 +51,7 @@
 			<text class="value">{{detailData.data11}} {{detailData.phone}}</text>
 			<view class="button">
 				<uni-icons class="cl" type="phone" size="20" color="#f56c6c" @click="goPhone"></uni-icons>
-				<uni-icons type="chat" size="20" color="#2196f3"></uni-icons>
+				<uni-icons type="chat" size="20" color="#2196f3" @click="goChat"></uni-icons>
 			</view>
 		</view>
 		<view class="list">
@@ -97,7 +97,6 @@
 			onLoad(option){
 				if(option.detailData) {
 					const detailData = JSON.parse(decodeURIComponent(option.detailData));
-					console.log(detailData)
 					this.detailData.state = detailData.data8
 					this.detailData.data1 = detailData.data1
 					this.detailData.data2 = detailData.data2
@@ -110,6 +109,11 @@
 				uni.makePhoneCall({
 				    phoneNumber: this.detailData.phone 
 				});
+			},
+			goChat() {
+				uni.navigateTo({
+					url: '/pages/ChatRoom/home/home'
+				})
 			}
 		}
 	}

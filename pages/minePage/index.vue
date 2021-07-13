@@ -4,7 +4,7 @@
 		<view class="user-section">
 			<view class="user-info-box" v-if="isLogin">
 				<view class="portrait-box">
-					<image class="portrait" src="/static/img/defaultUser.png"></image>
+					<uni-file-picker class="upload" disable-preview :del-icon="false" return-type="object">上传头像</uni-file-picker>
 				</view>
 				<view class="info-box">
 					<view class="username">{{userInfo.name}}</view>
@@ -54,7 +54,8 @@
 				isLogin: false,
 				userInfo: {
 					name: '张三',
-					dept: '生产部 维修组'
+					dept: '生产部 维修组',
+					imageValue: [],
 				},
 			}
 		},
@@ -88,7 +89,7 @@
 				uni.reLaunch({
 				    url: '/pages/login/login'
 				});
-			}
+			},
 		},
 		mounted() {
 			let _this = this
@@ -136,8 +137,18 @@
 				.portrait {
 					width: 6rem;
 					height: 6rem;
-					border: 2px solid #fff;
-					border-radius: 50%;
+					border-radius: 5px;
+					margin-right: 0.5rem;
+					background: #FFFFFF;
+				}
+				.upload {
+					width: 6rem;
+					height: 6rem;
+					margin-right: 0.5rem;
+					.file-picker__box {
+						width: 6rem;
+						height: 6rem;
+					}
 				}
 				.username {
 					color: $font-color-white;
@@ -154,7 +165,7 @@
 		.cover-container {
 			position: relative;
 			.history-section {
-				margin-top: 1rem;
+				margin-top: 0.5rem;
 				background: #fff;
 				border-radius: 0.5rem;
 				.line {
@@ -167,7 +178,7 @@
 			line-height: 4rem;
 			text-align: center;
 			background: #FFFFFF;
-			margin-top: 1rem;
+			margin-top: 0.5rem;
 		}
 	}
 </style>

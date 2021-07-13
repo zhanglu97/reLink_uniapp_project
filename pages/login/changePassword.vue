@@ -2,13 +2,13 @@
 	<view class="changePassword">
 		 <uni-forms ref="form" :value="formData" :rules="rules">
 			<uni-forms-item label="用户名" name="name">
-				<input type="text" v-model="formData.name" placeholder="请输入用户名" />
+				<uni-easyinput type="text" v-model="formData.name" placeholder="请输入用户名" />
 			</uni-forms-item>
 			<uni-forms-item label="原密码" name="password">
-				<input class="input" v-model="formData.password" type="text" placeholder="请输入原密码"  />
+				<uni-easyinput class="input" v-model="formData.password" type="text" placeholder="请输入原密码"  />
 			</uni-forms-item>
 			<uni-forms-item label="新密码" name="newpassword">
-				<input class="input" v-model="formData.newpassword" type="text" placeholder="请输入新密码"  />
+				<uni-easyinput class="input" v-model="formData.newpassword" type="text" placeholder="请输入新密码"  />
 			</uni-forms-item>
 			<button class="submit" @click="submit">提交</button>
 		</uni-forms>

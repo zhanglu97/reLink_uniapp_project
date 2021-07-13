@@ -196,6 +196,28 @@
 		box-sizing: border-box;
 		/* #endif */
 	}
+	
+	.upload {
+		.uni-file-picker__container {
+			margin: 0px;
+		}
+		.file-picker__box {
+			width: 6rem !important;
+			height: 6rem !important;
+		}
+		.file-picker__box-content {
+			margin: 0px !important;
+			background: #ffffff;
+			font-size: 12px;
+			color: #888;
+		}
+		.uni-progress-bar {
+			height: 0 !important;
+		}
+		.icon-add {
+			width: 4rem;
+		}
+	}
 
 	.file-picker__box-content {
 		position: absolute;

@@ -47,7 +47,7 @@
 		position: relative;
 		.MainBody {
 			padding: 0 1rem;
-			border-bottom: 1px solid #EEEEEE;
+			border-bottom: 5px solid #EEEEEE;
 		}
 		.device_list {
 			.item {

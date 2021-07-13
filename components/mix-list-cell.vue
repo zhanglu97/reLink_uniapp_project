@@ -96,23 +96,23 @@
 
 		.cell-icon {
 			align-self: center;
-			width: 56upx;
-			max-height: 60upx;
-			font-size: 38upx;
+			width: 2.8rem;
+			max-height: 3rem;
+			font-size: 1.6rem;
 		}
 
 		.cell-more {
 			align-self: center;
-			font-size: 30upx;
+			font-size: 1.5rem;
 			color: $font-color-base;
-			margin-left: 10px;
+			margin-left: 1rem;
 		}
 
 		.cell-tit {
 			flex: 1;
 			font-size: $font-base;
 			color: $font-color-dark;
-			margin-right: 10upx;
+			margin-right: 0.5rem;
 			margin-left: 1rem;
 		}
 

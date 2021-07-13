@@ -1,22 +1,22 @@
 <template>
 	<view class="repairPage">
 		 <uni-forms :modelValue="formData" :rules="rules" ref="form">
-			<uni-forms-item label="设备编码" name="data1">
+			<uni-forms-item label="设备编码" name="data1" required>
 				<uni-easyinput type="text" v-model="formData.data1" placeholder="请输入设备编码" />
 			</uni-forms-item>
-			<uni-forms-item label="设备名称" name="data2">
+			<uni-forms-item label="设备名称" name="data2" required>
 				<uni-easyinput type="text" v-model="formData.data2" placeholder="请输入设备名称" />
 			</uni-forms-item>
-			<uni-forms-item label="设备型号" name="data3">
+			<uni-forms-item label="设备型号" name="data3" required>
 				<uni-easyinput type="text" v-model="formData.data3" placeholder="请输入设备型号" />
 			</uni-forms-item>
-			<uni-forms-item label="报警代码" name="data4">
+			<uni-forms-item label="报警代码" name="data4" required>
 				<uni-easyinput type="text" v-model="formData.data4" placeholder="请输入报警代码" />
 			</uni-forms-item>
-			<uni-forms-item label="问题描述" name="data5">
+			<uni-forms-item label="问题描述" name="data5" required>
 				<uni-easyinput type="textarea" maxlength="100" autoHeight v-model="formData.data5" placeholder="请输入问题描述(少于100字)" />
 			</uni-forms-item>
-			<uni-forms-item label="现场图片" name="data6">
+			<uni-forms-item label="现场图片" name="data6" required>
 				<uni-file-picker v-model="formData.imageValue" :limit="3" fileMediatype="image" mode="grid" @select="select" />
 			</uni-forms-item>
 			<button class="botton_Submit" @click="submitForm">立即报修</button>

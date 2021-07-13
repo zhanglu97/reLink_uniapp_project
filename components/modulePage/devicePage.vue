@@ -86,7 +86,7 @@
 	.devicePage {
 		.nav-list {
 			display: flex;
-			border-bottom: 1px solid #ddd;
+			border-bottom: 1px solid #EEEEEE;
 			padding: 1.5rem 0;
 			.nav {
 				width: 50%;

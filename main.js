@@ -3,6 +3,7 @@ import App from './App'
 import http from './common/axios.js'
 import {Api_url} from './common/config'
 import './static/font-icon/iconfont.css';    // 引用 iconfont.css
+
 import uniIcons from "@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"
 import uniNoticeBar from "@/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"
 import uniSegmentedControl from "@/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue"
@@ -19,8 +20,6 @@ import uniListItem from '@/uni_modules/uni-list/components/uni-list-item/uni-lis
 import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue'
 import uniPopupDialog from '@/uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog.vue'
 import uniTransition from '@/uni_modules/uni-transition/components/uni-transition/uni-transition.vue'
-
-
 Vue.component('uniIcons', uniIcons);
 Vue.component('uniNoticeBar', uniNoticeBar);
 Vue.component('uniSegmentedControl', uniSegmentedControl);
@@ -69,7 +68,6 @@ Vue.prototype.goNextToken = function(url){
     // 1.获取缓存中token的值
     let token = uni.getStorageSync('token')
 	// 异步获取token
-	 console.log(token)
     if(token){
     	// 如果token存在就跳转
     	uni.navigateTo({

@@ -120,7 +120,6 @@
 		},
 		methods: {
 			getclickRight(val) {
-				console.log(val)
 				this.isList = !this.isList
 				if(this.isList) {
 					this.rightIcon = 'settings'

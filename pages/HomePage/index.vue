@@ -63,7 +63,7 @@
 	.HomePage {
 		position: relative;
 		.NoticeBar {
-			padding-top: 9rem;
+			padding-top: 8.8rem;
 		}
 		.MainBody {
 			.ad-banner {
