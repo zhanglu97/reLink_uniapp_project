@@ -1,25 +1,23 @@
 <template>
 	<view class="chatHome">
-		<nav-header title="聊天" backgroundColor="#1296db" :isUrgency="false" leftIcon="back" @getclickLeft="getclickLeft"></nav-header>
+		<selectInput :list="selectList" :list-key="'name'" :show.sync="selectShow" @on-select="checkSelect" @close="closeSelect" />
 		<view class="content">
-			<uni-swipe-action>
-				 <uni-swipe-action-item  v-for="(item, index) in list" :right-options="options"  @click="bindClick" @change="swipeChange($event)">
-					<view class="item" :class="item.isTop ? 'bg_view' : ''" hover-class="message-hover-class" @tap="linkTo(item)">
-						<image mode="aspectFill" :src="item.images" />
-						<!-- 此层wrap在此为必写的，否则可能会出现标题定位错误 -->
-						<view class="right u-border-bottom title-wrap">
-							<view class="right_top">
-								<view class="right_top_name u-line-1">{{ item.name }}</view>
-								<view class="right_top_time ">{{ item.updateTime }}</view>
-							</view>
-							<view class="right_btm ">
-								<view class="u-line-1">-</view>
-								<view class=""></view>
-							</view>
+			<u-swipe-action :show="item.show" :index="index" v-for="(item, index) in list" btn-width="160" :key="item.id" @click="click" @open="open" :options="options">
+				<view class="item" :class="item.isTop ? 'bg_view' : ''" hover-class="message-hover-class" @tap="linkTo(item)">
+					<image mode="aspectFill" :src="item.images" />
+					<!-- 此层wrap在此为必写的，否则可能会出现标题定位错误 -->
+					<view class="right u-border-bottom title-wrap">
+						<view class="right_top">
+							<view class="right_top_name u-line-1">{{ item.name }}</view>
+							<view class="right_top_time ">{{ item.updateTime }}</view>
+						</view>
+						<view class="right_btm ">
+							<view class="u-line-1">-</view>
+							<view class=""></view>
 						</view>
 					</view>
-				</uni-swipe-action-item>
-			</uni-swipe-action>
+				</view>
+			</u-swipe-action>
 		</view>
 		<tabBarChat currentPage="/pages/ChatRoom/Home/home"></tabBarChat>
 	</view>
@@ -27,21 +25,16 @@
 
 <script>
 	import tabBarChat from "@/components/tabBarChat.vue"
-	import navHeader from "@/components/navHeader.vue"
+	import selectInput from '@/components/selectInput/selectInput.vue';
 	export default {
 		components: {
-			tabBarChat,navHeader
+			tabBarChat,selectInput
 		},
 		data() {
 			return {
-				options:[
-					{
-						text: '删除',
-						style: {
-							backgroundColor: '#dd524d'
-						}
-					}
-				],
+				selectShow: false,
+				options:[{ text: '删除', style: { backgroundColor: '#dd524d' }}],
+				selectList: [{ id: '1', name: '添加朋友', icon: 'man-add-fill' },],
 				list: [
 					{
 						id: 1,
@@ -72,27 +65,74 @@
 			}
 		},
 		methods: {
+			//打开或者关闭弹窗
+			showSelect(){
+				this.selectShow = !this.selectShow;
+			},
 			getclickLeft() {
 				uni.navigateTo({
 				    url: '/pages/repairPage/index',
 				});
 			},
-			onClick(e){
-				console.log('点击了'+(e.position === 'left' ? '左侧' : '右侧') + e.content.text + '按钮')
+			//action 点击事件
+			click(index, index1) {
+				if (index1 == 0) {
+					this.list.splice(index, 1);
+				} 
 			},
-			swipeChange(e){
-				console.log('当前状态：'+ open )
+			//action 打开事件
+			open(index) {
+				this.list[index].show = true;
+				this.list.map((val, idx) => {
+					if (index != idx) this.list[idx].show = false;
+				});
+			},
+			//跳转
+			linkTo({ id, name, images ,userId }) {
+				uni.navigateTo({
+				    url: '/pages/ChatRoom/chat/chat?messageId=' + id + '&fromUserId=' + userId,
+				});
+			},
+			//关闭弹窗
+			closeSelect(){
+				//小程序兼容
+				this.selectShow = false;
+			},
+			//添加
+			checkSelect(index) {
+				if (index == 0) {
+					uni.navigateTo({
+					    url: '/pages/ChatRoom/AddFriend/index',
+					});
+				}
+			},
+		},
+		onNavigationBarButtonTap({ index }) {
+				console.log(index)
+			if(index == 0) {
+				this.showSelect()
 			}
-		}
+		},
+		//返回按钮事件
+		onBackPress(e) {
+			//以下内容对h5不生效
+			//--所以如果用浏览器自带的返回按钮进行返回的时候页面不会重定向 正在寻找合适的解决方案
+			uni.navigateTo({
+				url: '/pages/repairPage/index',
+			});
+			return true;
+		},
 	}
 </script>
 
 <style lang="scss">
+	.u-border-bottom:after {
+	    border-bottom-width: 0px;
+	}
 	.chatHome {
 		height: 100%;
 		background: #F2F2F2;
 		.content {
-			padding-top: 8.8rem;
 			.item {
 				width: 750rpx;
 				display: flex;

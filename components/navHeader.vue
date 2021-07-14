@@ -5,7 +5,7 @@
 			:leftIcon="leftIcon" :rightIcon="rightIcon"  @clickLeft="clickLeft"  @clickRight="clickRight"
 		></uni-nav-bar>
 		
-		<uni-nav-bar :title="title" :backgroundColor="backgroundColor" color="#ffffff" v-else id="navbar" :leftIcon="leftIcon"  @clickLeft="clickLeft2">
+		<uni-nav-bar :title="title" :backgroundColor="backgroundColor" :color="color" v-else id="navbar" :leftIcon="leftIcon"  @clickLeft="clickLeft2">
 			<button type="warn" size="mini" class="urgency_button" @click="goRepair" v-if="isUrgency">
 				<image src="../static/img/jinji.png" mode="" class="iconfont"></image> 紧急报修
 			</button>
@@ -28,6 +28,10 @@
 			rightIcon: {
 				type: String,
 				default: 'settings'
+			},
+			color: {
+				type: String,
+				default: '#ffffff'
 			},
 			backgroundColor: {
 				type: String,

@@ -136,7 +136,7 @@
 		}
 		.con {
 			position: absolute;
-			width: calc(90% - 4rem);
+			width: calc(90%);
 			left: 5%;
 			top: 30vh;
 			background: #FFFFFF;

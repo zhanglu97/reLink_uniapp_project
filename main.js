@@ -2,8 +2,18 @@ import Vue from 'vue'
 import App from './App'
 import http from './common/axios.js'
 import {Api_url} from './common/config'
-import './static/font-icon/iconfont.css';    // 引用 iconfont.css
+import store from '@/store';
+import * as filters from '@/filter/index.js'
+import uView from "uview-ui";
+Vue.use(uView);
 
+const vuexStore = require("@/store/$u.mixin.js");
+Vue.mixin(vuexStore);
+
+Object.keys(filters).forEach(name=>{
+	Vue.filter(name,filters[name])
+})
+import './static/font-icon/iconfont.css';    // 引用 iconfont.css
 import uniIcons from "@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"
 import uniNoticeBar from "@/uni_modules/uni-notice-bar/components/uni-notice-bar/uni-notice-bar.vue"
 import uniSegmentedControl from "@/uni_modules/uni-segmented-control/components/uni-segmented-control/uni-segmented-control.vue"
@@ -20,8 +30,6 @@ import uniListItem from '@/uni_modules/uni-list/components/uni-list-item/uni-lis
 import uniPopup from '@/uni_modules/uni-popup/components/uni-popup/uni-popup.vue'
 import uniPopupDialog from '@/uni_modules/uni-popup/components/uni-popup-dialog/uni-popup-dialog.vue'
 import uniTransition from '@/uni_modules/uni-transition/components/uni-transition/uni-transition.vue'
-import uniSwipeAction from '@/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue'
-import uniSwipeActionItem from '@/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue'
 Vue.component('uniIcons', uniIcons);
 Vue.component('uniNoticeBar', uniNoticeBar);
 Vue.component('uniSegmentedControl', uniSegmentedControl);
@@ -38,8 +46,6 @@ Vue.component('uniListItem', uniListItem);
 Vue.component('uniPopup', uniPopup);
 Vue.component('uniPopupDialog', uniPopupDialog);
 Vue.component('uniTransition', uniTransition);
-Vue.component('uniSwipeAction', uniSwipeAction);
-Vue.component('uniSwipeActionItem', uniSwipeActionItem);
 
 const msg = (title, duration=1500, mask=false, icon='none')=>{
 	//统一提示方便全局修改
@@ -67,6 +73,7 @@ Vue.prototype.$api = {msg,http,prePage};
 Vue.config.productionTip = false
 
 const app = new Vue({
+	store,
     ...App
 })
 Vue.prototype.goNextToken = function(url){

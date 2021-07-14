@@ -1,4 +1,7 @@
 {
+	"easycom": {
+		"^u-(.*)": "@/node_modules/uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/login/login",
@@ -88,14 +91,82 @@
 		}, {
 			"path": "pages/ChatRoom/Home/home",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "聊天",
+				"navigationBarBackgroundColor": "#1296db",
+				"navigationBarTextStyle": "white",
+				// #ifdef MP-WEIXIN
+				"navigationStyle": "custom",
+				// #endif
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"float": "right",
+							"text": "\ue9c9"
+						}]
+					}
+				}
+			}
+		}, {
+			"path": "pages/ChatRoom/chat/chat",
+			"style": {
+				"navigationBarBackgroundColor": "#F8F8F8",
+				"navigationBarTextStyle": "black",
+				"app-plus": {
+					"softinputNavBar": "none",
+					"softinputMode": "adjustPan",
+					"titleNView": {
+						"autoBackButton":false,
+						"buttons": [{
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"float": "right",
+							"text": "\ue626",
+							"color": "#303133"
+						}
+						// ,{
+						// 	"fontSrc": "/static/iconfont/iconfont.ttf",
+						// 	"float": "left",
+						// 	"text": "\ue6f2",
+						// 	"color": "#303133"
+						// }
+						]
+					}
+				}
 			}
 		}, {
 			"path": "pages/ChatRoom/AddressBook/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "通讯录",
+				"navigationBarBackgroundColor": "#1296db",
+				"navigationBarTextStyle": "white",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"fontSrc": "/static/iconfont/iconfont.ttf",
+							"float": "right",
+							"text": "\ue786"
+						}]
+					}
+				}
 			}
-		}
+		}, {
+            "path" : "pages/ChatRoom/businessCard/businessCard",
+            "style" : {
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"titleNView": {
+						"backgroundColor":"#FFFFFF"
+					}
+				}
+			}
+        }, {
+            "path" : "pages/ChatRoom/AddFriend/index",
+            "style" : {
+				"navigationBarTitleText": "添加朋友",
+				"navigationBarBackgroundColor": "#1296db",
+				"navigationBarTextStyle": "white"
+			}
+        }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
