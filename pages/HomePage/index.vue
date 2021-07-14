@@ -64,10 +64,13 @@
 <style lang="scss">
 	.HomePage {
 		position: relative;
+		min-height: 100vh;
+		background-color: #f2f2f2;
 		.NoticeBar {
 			padding-top: 8.8rem;
 		}
 		.MainBody {
+			background: #FFFFFF;
 			.ad-banner {
 				height: 15rem;
 				.bannerImage {

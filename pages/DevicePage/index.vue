@@ -47,11 +47,15 @@
 <style lang="scss">
 	.DevicePage {
 		position: relative;
+		min-height: 100vh;
+		background-color: #f2f2f2;
 		.MainBody {
 			padding: 0 1rem;
 			border-bottom: 5px solid #EEEEEE;
+			background: #FFFFFF;
 		}
 		.device_list {
+			background: #FFFFFF;
 			.item {
 				border-bottom: 1px solid #EEEEEE;
 				padding: 0 1rem;
