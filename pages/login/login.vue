@@ -16,7 +16,7 @@
 						<uni-icons type="contact" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
-						<input v-model="userLogin.name" class="uni-input" focus placeholder="请输入用户名" />
+						<input v-model="userLogin.name" class="uni-input" placeholder="请输入用户名" />
 					</view>
 				</view>
 				<view class="list">
