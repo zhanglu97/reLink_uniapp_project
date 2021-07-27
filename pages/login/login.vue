@@ -37,13 +37,14 @@
 						<input v-model="userLogin.phone" class="uni-input" focus placeholder="请输入手机号" />
 					</view>
 				</view>
-				<view class="list">
+				<view class="list list_part_left">
 					<view class="input_icon">
 						<uni-icons type="locked" size="20" color="#E5E5E5"></uni-icons>
 					</view>
 					<view class="input_input">
 						<input v-model="userLogin.code" class="uni-input" placeholder="请输入验证码" @confirm="login()" />
 					</view>
+					<text class="list_part_right">获取验证码</text>
 				</view>
 			</view>
 			
@@ -160,6 +161,8 @@
 				border-bottom: 2px solid #F7F7F7;
 				padding-top: 2rem;
 				display: flex;
+				align-items: center;
+				position: relative;
 				.input_icon {
 					width: 4rem;
 					display: flex;
@@ -172,6 +175,15 @@
 				}
 				input::-webkit-input-placeholder {
 					color: #D2D2D2;
+				}
+				.list_part_right {
+					width: 8rem;
+					font-size: 1.2rem;
+					color: $main-title-color;
+					position: absolute;
+					right: 0;
+					height: 4.8rem;
+					line-height: 4.8rem;
 				}
 			}
 			.botton_login {
