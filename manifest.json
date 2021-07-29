@@ -91,8 +91,8 @@
                 }
             },
             "splashscreen" : {
-                "androidStyle" : "default",
-                "iosStyle" : "storyboard"
+                "androidStyle" : "common",
+                "iosStyle" : "common"
             }
         }
     },

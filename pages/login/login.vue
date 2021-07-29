@@ -1,7 +1,8 @@
 <template>
 	<view class="login">
 		<view class="bg_color">
-			<image class="login-logo" src="../../static/img/login_logo.png" mode=""></image>
+			<!-- <image class="login-logo" src="../../static/img/login_logo.png" mode=""></image> -->
+			<text class="title">睿采智连</text>
 		</view>
 		<view class="con">
 			<view class="type_tab">
@@ -133,6 +134,11 @@
 				width: 20rem;
 				height: 6rem;
 				z-index: 1111;
+			}
+			.title {
+				font-size: 2.6rem;
+				color: #FFFFFF;
+				letter-spacing: 0.5rem;
 			}
 		}
 		.con {
