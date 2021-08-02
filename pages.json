@@ -6,17 +6,26 @@
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/HomePage/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/repairPage/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/repairPage/repair",
@@ -31,7 +40,10 @@
 		}, {
 			"path": "pages/DevicePage/index",
 			"style": {
-				"navigationBarTitleText": "设备"
+				"navigationBarTitleText": "设备",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/DevicePage/deviceList/index",
@@ -61,12 +73,18 @@
 		}, {
 			"path": "pages/AlarmPage/index",
 			"style": {
-				"navigationBarTitleText": "报警"
+				"navigationBarTitleText": "报警",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/minePage/index",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"popGesture": "none"
+				}
 			}
 		}, {
 			"path": "pages/login/changePassword",

@@ -40,7 +40,6 @@
 			this.scrollTop = e.scrollTop;
 		},
 		onNavigationBarButtonTap({ index }) {
-			console.log(index)
 			if(index == 0) {
 				uni.navigateTo({
 				    url: '/pages/ChatRoom/AddFriend/index'
